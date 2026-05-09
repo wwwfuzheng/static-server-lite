@@ -1,0 +1,25 @@
+{
+  "name": "static-server-lite",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lightweight static asset server with admin web UI",
+  "scripts": {
+    "dev:server": "pnpm -C server dev",
+    "dev:web": "pnpm -C web dev",
+    "build:web": "pnpm -C web build",
+    "start": "pnpm -C server start",
+    "test": "pnpm -r test",
+    "test:server": "pnpm -C server test",
+    "test:web": "pnpm -C web test",
+    "coverage": "pnpm -r coverage",
+    "gen:hash": "node scripts/gen-hash.mjs",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "bcryptjs": "^2.4.3",
+    "prettier": "^3.3.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm coverage *)",
+      "Bash(xargs -I{} sh -c 'echo \"=== {} ===\"; cat \"{}\"')",
+      "Bash(node ./node_modules/vitest/vitest.mjs run tests/integration/admin-validation.test.js)",
+      "Bash(node ./node_modules/vitest/vitest.mjs run tests/unit/config.test.js)",
+      "Bash(node ./node_modules/vitest/vitest.mjs run tests/unit/error.test.js)",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(git check-ignore *)",
+      "Bash(git status *)",
+      "Bash(grep -E 'web/dist|node_modules|\\\\.env$|coverage/')",
+      "Bash(git add *)"
+    ]
+  }
+}
