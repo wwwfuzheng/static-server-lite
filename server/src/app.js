@@ -1,5 +1,7 @@
+import zlib from 'node:zlib';
 import Koa from 'koa';
 import bodyParser from 'koa-bodyparser';
+import compress from 'koa-compress';
 import { createErrorMiddleware } from './middleware/error.js';
 import { createAuthRouter } from './routes/auth.js';
 import { createAdminRouter } from './routes/admin.js';
@@ -12,6 +14,13 @@ export function createApp(config, logger) {
   app.context.logger = logger;
 
   app.use(createErrorMiddleware(logger));
+  app.use(
+    compress({
+      threshold: 1024,
+      br: false,
+      gzip: { flush: zlib.constants.Z_SYNC_FLUSH },
+    })
+  );
   app.use(bodyParser({ jsonLimit: '1mb' }));
 
   const authRouter = createAuthRouter(config);
