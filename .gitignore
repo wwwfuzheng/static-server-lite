@@ -141,3 +141,6 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Claude Code per-user permissions (auto-mutated by the harness)
+.claude/settings.json
